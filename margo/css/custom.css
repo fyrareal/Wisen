@@ -1,0 +1,62 @@
+/*editan*/
+
+.no1 {
+    border-right: 10px solid;
+    border-right-color: #2980b9;
+}
+
+.no2 {
+    border-right: 10px solid;
+    border-right-color: #27ae60;
+}
+
+.no3 {
+    border-right: 10px solid;
+    border-right-color: #e74c3c;
+}
+.no1:hover, .no2:hover,.no3:hover {
+    padding-left: 50px;
+}
+
+
+.sbmptn {
+    height: 300px;
+    background: #2980b9;
+    color: #fff;
+}
+.un {
+     height: 300px;
+    background: #27ae60;
+    color: #fff;
+}
+.materi {
+     height: 300px;
+    background: #e74c3c;
+    color: #fff;
+}
+
+
+/*editan*/
+
+.navbar-default .navbar-nav .dropsubject {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 800px;
+	background-color: #fff;
+    visibility: hidden;
+    z-index: 2;
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	-o-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.dropsubject li .sbmptn a, .dropsubject li .un a, .dropsubject li .materi p {
+    color: #fff;
+}
