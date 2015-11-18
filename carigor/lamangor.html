@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CariGOR</title>
+	
+	<link rel="icon" href="assets/icon/logo-putih-trans.png" type="image/x-icon"/>
+	<link rel="shortcut icon" href="assets/icon/logo-putih-trans.png" type="image/x-icon"/>
+	
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/custom.css" rel="stylesheet">
+	<link rel="stylesheet" href="dist/css/bootstrap-select.css">
+	
+    <!-- DATETIME PICKER -->
+     <link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    
+    
+    <!--avi bisa scroll-->
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 0px;
+        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    }
+    
+    @font-face {
+   font-family: myFirstFont;
+   src: url();
+    }
+
+    div.fd{
+            border-radius: 0 0 5em 5em;
+        }    
+    
+    
+   /*change image*/
+    input.book {
+        width: 50px;
+        height: 20px;
+        display: block;
+        content: url('assets/icon/booked.png');
+    }
+    
+    
+    
+    input[type="checkbox"] {
+    background-color: #ecf0f1;
+    display: block;
+    width: 50px;
+    height: 20px;
+        border-radius: 0.1em 0.1em 0.1em 0.1em;
+        -webkit-box-shadow: 2px 2px 3px -2px rgba(84,84,84,0.75);
+        -moz-box-shadow: 2px 2px 3px -2px rgba(84,84,84,0.75);
+        box-shadow: 2px 2px 3px -2px rgba(84,84,84,0.75);
+    }
+    input[type="checkbox"]:checked {
+        content: url('assets/icon/jadwalterpilih.PNG');
+    }
+     input[type="checkbox"]:hover {
+    background-color: #40d47e;
+    display: block;
+    width: 50px;
+    height: 20px;
+    border-radius: 0.1em 0.1em 0.1em 0.1em;
+        -webkit-box-shadow: 0 1% 2% 0 rgba(176,176,176,1);
+        -moz-box-shadow: 0 1% 2% 0 rgba(176,176,176,1);
+        box-shadow: 0 1% 2% 0 rgba(176,176,176,1);
+    }
+    
+
+    .native-hidden {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+        
+    #siteInfo{text-align:center}
+    p, input {display:inline-block}
+        
+    /*hover notif*/
+    .glyphicon-bell {
+  font-size: 25px;
+  color: #2574A9;
+  letter-spacing:6px;
+}
+        .glyphicon-bell:hover {
+  color: #223459;
+} 
+    .glyphicon-bell:checked {
+        color: #fff;
+    }
+    .glyphicon-thumbs-up {
+  font-size: 13px;
+  color: #95a5a6;
+  letter-spacing:6px;
+}
+        .glyphicon-thumbs-up:hover {
+  color: #1D1F21;
+} 
+       .glyphicon-thumbs-down {
+  font-size: 13px;
+  color: #95a5a6;
+  letter-spacing:6px;
+}
+        .glyphicon-thumbs-down:hover {
+  color: #1D1F21;
+} 
+
+           .glyphicon-triangle-top {
+  font-size: 12px;
+  color: #95a5a6;
+  letter-spacing:6px;
+}
+        .glyphicon-triangle-top:hover {
+  color: #1D1F21;
+} 
+         .glyphicon-triangle-bottom {
+  font-size: 12px;
+  color: #95a5a6;
+  letter-spacing:6px;
+}
+        .glyphicon-triangle-bottom:hover {
+  color: #1D1F21;
+} 
+   
+    /*table*/
+        
+    table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+    border-color: #ff0;
+    }
+    th, td {
+        padding: 0px;
+    }
+   
+    span.as {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+    span.az {
+    padding-left:8px;
+}
+           
+ /*span header*/       
+    span.ay {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+    span.af {
+    padding-left: 35px;
+    padding-right: 20px;
+}
+    span.ag {
+    padding-left: 10px;
+    padding-right: 3px;
+}
+    div.tanggal {
+    color: #ecf0f1;
+    background-color: #d35400;
+    border-radius: 0.5em 0.5em 0.5em 0.5em;
+    width: 90%;
+    
+}
+    
+    /*lurus*/    
+        input.lurus, span.lurus, button.lurus{
+            float: left;
+            margin: 4px;
+        }
+
+    textarea {
+  resize: vertical;
+  width: 100%;
+  border-radius: 0.5em 0.5em 0.5em 0.5em;
+}
+        textarea.kecil {
+  resize: vertical;
+  width: 70%;
+  border-radius: 0.5em 0.5em 0.5em 0.5em;
+}
+    
+    /* datepicker */
+     #date{
+    width: 280px;
+}
+    /*star review*/
+   
+        
+        
+   </style>
+    
+   
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation"> <!-- sudah diganti dari fixed ke static-->
+
+	<!--Navigation Forum-->
+<div style="background: #0f7ab7; font-size:12px;">
+<div class="container">
+<ul class="list-inline" style="float: right; margin-bottom: 0;">
+<li><a style="color: #fff;" href="#">Forum</a></li>
+<li><a style="color: #fff;" href="#">Hubungi Carigor</a></li>
+<li><a style="color: #fff;" href="#">Panduan Carigor</a></li>
+</ul>
+</div>
+</div>
+
+        <!--Navigasi UTAMA-->
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img src="assets/icon/logo-putih-trans.png" height="140%" style="margin: 0 0 10px 0"/></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<ul class="nav navbar-nav navbar-right">
+    <!--notif-->
+  <li>
+    <div class="dropdown">
+        <p class="dropdown-toggle native-hidden" type="button" data-toggle="dropdown" style="font-size: 25px; margin: 15px 20px 5px 0"><span class="glyphicon glyphicon-bell "></span></p>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="#">
+                    <p>
+                        <img src="assets/icon/tiket.jpg" width="40px" height="20px">
+                        <span>&nbsp;&nbsp;</span>Anda telah mendapatkan tiket
+                        <strong>GOR Klebengan</strong>
+                        <br/>
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> pada tanggal 26/10/2015 lap.1 17:00-18:00 WIB
+                    </p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</li>
+    <!-- USER-->               
+   <li class="dropdown">
+    <img src="assets/icon/user.png" height="42" width="42" style="margin: 5px 20px 5px 0" class="dropdown-toggle" data-toggle="dropdown">
+       <!--menu-->
+        <ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
+                <li>
+                    <a href="user.html">
+                        <p>
+                            Bambang Linanto
+                        </p>
+                        <p style="font-size: 9px"> User Panel</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="status.html">
+                        <p>
+                            Status Pemesanan
+                        </p>
+                    </a>
+                </li>
+            
+            <!--Pembatas -->
+            <li class="divider"></li>
+            <li>
+                <button type="submit" class="btn btn-danger btn-block">Keluar</button>
+            </li>
+
+
+        </ul>
+    </li>           
+</ul>                
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+	
+	
+    <!-- Page Content -->	
+	<!--breadcrump-->    
+    <div class="container" style="background: #F0F0F0; font-size:12px;">
+        <div class="row fd" >
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+<div class="as" style="background: #f0f0f0"><a href="index.html" class="glyphicon glyphicon-home"></a>&nbsp;<a href="index.html">Depan</a>>><a href="#">Badminton</a>>><a href="#">D.I.Yogyakarta</a>>><a href="tabel.html">Sleman</a>>><a href="lamangor.html">GOR Klebengan</a></div>
+            </div>
+        </div>
+    </div>
+   
+    
+<!-- judul gor-->    
+    <div class="container">
+        <div class="row" >
+            <div class="col-md-1"></div>
+            <div class="col-md-6" style="font-size: 30px">  
+                <p style="margin-top: 5%">Gor Klebengan</p>                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-6" style="font-size: 18px; margin: -10px 0 10px 0; color:#f1c40f">  
+                <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span><p style=" color:#7f8c8d">&nbsp; &nbsp;(1 Review)</p>                 
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p style="color:#1D1F21">Buka 08:00-22:00 WIB</p>
+                    </div>
+                     <div class="col-md-6" style="margin-top: 1%">
+                        <div class="row">
+                            <div class="col-md-12">
+                              <select width="70%">
+                                <option>27 Okt 2015</option>
+                              </select>
+                              <span class="glyphicon glyphicon-calendar"></span>
+                            </div>
+                        </div>
+    </div>
+                </div>
+            </div>    
+        </div>
+    </div>
+  <!-- Image Slider & Jadwal REALTIME-->  
+    <div class="container" >
+      <div class="row">
+          <div class="col-md-1"></div>
+          <!-- image slider-->
+		<div class="col-md-5">
+            	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+					  <!-- Indicators -->
+					  <ol class="carousel-indicators">
+						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+						<li data-target="#myCarousel" data-slide-to="1"></li>
+						<li data-target="#myCarousel" data-slide-to="2"></li>
+						<li data-target="#myCarousel" data-slide-to="3"></li>
+					  </ol>
+					  <!-- Wrapper for slides -->
+					  <div class="carousel-inner" role="listbox">
+						<div class="item active">
+						  <img src="assets/icon/gmbr1.jpg" alt="t">
+						</div>
+						<div class="item">
+						  <img src="assets/icon/gmbr2.jpg" alt="Chania">
+						</div>
+						<div class="item">
+						  <img src="assets/icon/gmbr3.jpg" alt="Flower">
+						</div>
+						<div class="item">
+						  <img src="assets/icon/gmbr4.jpg" alt="Flower">
+						</div>
+					  </div>
+					  <!-- Left and right controls -->
+					  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					  </a>
+					  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					  </a>
+					</div>	
+            <div class="row" style="margin: 10% 0 0 3%">
+                <p>Gedung Olah Raga Klebengan</p><br>
+            <p>lokasi utara fakultas peternakan UGM</p> <br>   
+            <p>    Buka mulai pukul 08:00 WIB sampai 22:00 WIB</p>
+            </div>
+            
+    </div>
+          <div class="col-md-1"></div>
+          
+          <!-- JADWAL realtime-->  
+        <div class="col-md-4">
+            <div class="row">
+                <div class="tanggal">
+                    <span class="af ay">Waktu</span> 
+                    <span class="ag ay">Lap. 1</span>
+                    <span class="ag ay">Lap. 2</span> 
+                    <span class="ag ay">Lap. 3</span> 
+                    <span class="ag ay">Lap. 4</span>
+                </div>
+            </div>
+               <div class="row">
+                <div>
+                    <span class="as lurus">08:00-09:00</span> 
+                    <span class="as" >
+                        <img src="assets/icon/booked.png" width="50px" height="20px" style="margin-top: 1%; margin-left: -1%">
+                    </span>
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="az" ><input class="native-hidden lurus" type="checkbox"/></span>
+                </div>
+               </div>
+             <div class="row">
+                <div>
+                    <span class="as lurus">09:00-10:00</span> 
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="as" >
+                        <img src="assets/icon/booked.png" width="50px" height="20px" style="margin-top: 1%; margin-left: -9%">
+                    </span>
+                    <span class="az" ><input class="native-hidden lurus" type="checkbox"/></span>
+                </div>
+               </div>
+             <div class="row">
+                <div>
+                    <span class="as lurus">10:00-11:00</span> 
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="az" ><input class="native-hidden lurus" type="checkbox"/></span>
+                </div>
+               </div>
+             <div class="row">
+                <div>
+                    <span class="as lurus">11:00-12:00</span> 
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="as" >
+                        <img src="assets/icon/booked.png" width="50px" height="20px" style="margin-top: 1%; margin-left: -5%">
+                    </span>
+                    <span class="as" >
+                        <img src="assets/icon/booked.png" width="50px" height="20px" style="margin-top: 1%; margin-left: -3%">
+                    </span>
+                    <span class="az" ><input class="native-hidden lurus" type="checkbox"/></span>
+                </div>
+               </div>
+             <div class="row">
+                <div>
+                    <span class="as lurus">12:00-13:00</span> 
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="az" ><input class="native-hidden lurus" type="checkbox"/></span>
+                </div>
+               </div>
+             <div class="row">
+                <div>
+                    <span class="as lurus">13:00-14:00</span> 
+                    <span class="as" >
+                        <img src="assets/icon/booked.png" width="50px" height="20px" style="margin-top: 1%; margin-left: -1%">
+                    </span>
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="az" ><input class="native-hidden lurus" type="checkbox"/></span>
+                </div>
+               </div>
+             <div class="row">
+                <div>
+                    <span class="as lurus">14:00-15:00</span> 
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="az" ><input class="native-hidden lurus" type="checkbox"/></span>
+                </div>
+               </div>
+             <div class="row">
+                <div>
+                    <span class="as lurus">15:00-16:00</span> 
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="az" ><input class="native-hidden lurus" type="checkbox"/></span>
+                </div>
+               </div>
+             <div class="row">
+                <div>
+                    <span class="as lurus">16:00-17:00</span> 
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="az" ><input class="native-hidden lurus" type="checkbox"/></span>
+                </div>
+               </div>
+             <div class="row">
+                <div>
+                    <span class="as lurus">17:00-18:00</span> 
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="az" ><input class="native-hidden lurus" type="checkbox"/></span>
+                </div>
+               </div>
+             <div class="row">
+                <div>
+                    <span class="as lurus">18:00-19:00</span> 
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="az" ><input class="native-hidden lurus" type="checkbox"/></span>
+                </div>
+               </div>
+             <div class="row">
+                <div>
+                    <span class="as lurus">19:00-20:00</span> 
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="az" ><input class="native-hidden lurus" type="checkbox"/></span>
+                </div>
+               </div>
+             <div class="row">
+                <div>
+                    <span class="as lurus">20:00-21:00</span> 
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="az" ><input class="native-hidden lurus" type="checkbox"/></span>
+                </div>
+               </div>
+             <div class="row">
+                <div>
+                    <span class="as lurus">21:00-22:00</span> 
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="as" ><input class="native-hidden lurus" type="checkbox"/></span>
+                    <span class="az" ><input class="native-hidden lurus" type="checkbox"/></span>
+                </div>
+               </div>
+
+
+
+        </div>        
+      </div>
+        <div class="row">
+            <div class="col-md-7"></div>
+            <div class="col-md-4">
+                <div class="row"  style="margin: 5% 0 0 23%"><p style="color:#2574A9; font-size: 19px"><strong>Rp. 10.000,00 / jam</strong></p></div>
+                <div class="row"  style="margin-left: 30%">
+                    <button type="button" class="btn btn-warning btn-md" data-toggle= "modal" data-target="#myModal">
+                        Pesan Sekarang</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+       <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 class="modal-title">Pemesanan</h2>
+        </div>
+        <div class="panel panel-default">
+            <div class="row"><div class="col-md-1"></div><div class="col-md-2" style="width:60%">Gor Klebengan 17.00 - 18.00 Lap 1</div> <div style="pull-right">Rp.10.000,00</div></div>
+            <div class="row"><div class="col-md-1"></div><div class="col-md-2" style="width:60%">Gor Klebengan 17.00 - 19.00 Lap 2</div> <div style="pull-right">Rp.20.000,00</div></div>
+            
+        </div>
+        <div class="modal-footer">
+                 <div class="col-md-3" style="pull-right">
+                <button type="button" class="btn btn-default btn-md" data-dismiss="modal">Batal</button> </div>
+       
+          <div class="col-md-8">
+                <button type="button" class="btn btn-warning btn-md" data-dismiss="modal">Lanjut Pembayaran</button> 
+        </div>
+            </div>
+      </div>
+      
+    </div>
+  </div>
+    
+    
+    
+    <!--maps-->
+<div class="container">
+<div class="row" >
+    <div class="col-md-1"></div>
+    <!--penjelas & peta-->
+        <div class="col-md-5" style="border-top: 1px solid #ccc; padding-top: 25px">
+            <div> <img src="assets/icon/locate.jpg" style="height:2%"> <font color="#A6A8AA"> &nbsp;Klebengan, Depok, Sleman, D.I. Yogyakarta</font>
+            </div>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d988.3034697826247!2d110.3858038291723!3d-7.767129670849079!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNDYnMDEuNyJTIDExMMKwMjMnMTAuOSJF!5e0!3m2!1sen!2sid!4v1445437851065" width="100%" height="33.337%" frameborder="0" style="border:0" allowfullscreen></iframe>  
+  
+        </div>
+    </div>         
+</div>
+
+<!-- REVIEW -->
+<div class="container">
+	<div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2"><p style="margin: 15% 0 0 3%; font-size: 26px"><strong>Review</strong></p></div>
+	</div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-1">
+        <img src="assets/icon/user.png" width="60px" height="60px" style="margin-top: 75%">
+        </div>
+        <div class="col-md-4">
+        <div class="row lead">
+        <p style="margin-left:90px"><span id="stars" class="starrr" style="color:#f2ca27"><p>&nbsp;</p></span><span id="count">0</span> star(s)</p>
+	    </div>
+        <div class="row" style="margin: -20px 0 0 -10px">
+        <textarea rows="4"></textarea>
+        </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-2" style="margin-left: -3%">
+        <button type="button" class="btn btn-default btn-sm">Batal</button>
+        <button type="button" class="btn btn-primary btn-sm">Kirim</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-1">
+        <img src="assets/icon/gmbruser2.png" width="55px" height="55px" style="margin-top: 75%">
+        </div>
+        <div class="col-md-4" style="margin-top: 3%">
+            <div class="row" style="font-size:13px"><span><strong>Pablo Mauricio</strong></span></div>
+            <div class="row" style="color:#f1c40f; font-size: 10px"> 
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star-empty"></span>
+            </div>
+            <div class="row" style="color:#95a5a6; font-size: 9px">
+                <span>Sabtu, 3 September 2015</span>
+            </div>
+            <div class="row" style="color:#2c3e50; font-size: 14px; margin-bottom:1%"><span>Lapangannya bersih</span></div>
+            <div class="row" style="color:#95a5a6; font-size: 11px">
+                <span>
+                    <span class="glyphicon glyphicon-chevron-up"></span>
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <a data-toggle="collapse" data-target="#demo" style="color:#95a5a6;">Balas</a>
+                    <p style="color:#000"><strong>|</strong></p> 4 Suka 
+                    &nbsp;
+                    <span class="glyphicon glyphicon-thumbs-up"></span>
+                    &nbsp;
+                    <span class="glyphicon glyphicon-thumbs-down"></span>
+                </span>
+            </div>
+        <div id="demo" class="row collapse" >   
+            <div class="row">
+                <div >
+                    <textarea rows="2" class="kecil"></textarea>
+                </div>
+            </div>     
+            <div class="row">
+                <div class="col-md-4" style="margin-left: 40%">
+                <span>
+                    <button type="button" class="btn btn-default btn-xs lurus">Batal</button> 
+                    <button type="button" class="btn btn-primary btn-xs lurus">Kirim</button>
+                    </span>    
+                </div>
+            </div>
+         </div>
+    </div>
+
+        <div
+    </div> 
+         
+</div>        
+</div>
+
+        
+<!--  FOOTER-->        
+                
+<div class="container" style="border-top: 1px solid #ccc; padding-top: 25px; margin-top: 25px">
+   
+    <!--Hubungi CArigor-->
+    <div class="row">
+        <div class="col-md-3"></div>
+       <div class="col-md-4">
+         <div id="demo2" class="row collapse">
+                     CariGor merupakan sebuah aplikasi pemesanan tempat olahraga yang memudahkan penggunanya untuk memesan tempat olahraga melalui website, tanpa harus mendatangi secara langsung.CariGor juga memberi kepastian pemesanan tempat olahraga serta transaksi yang jelas dan terpercaya
+           </div>  
+        
+        </div> 
+        <div class="col-md-1"></div>
+   </div>
+    
+    
+   <div class="row" style="margin: 0 0% 0 10%">
+<div class="col-md-4" style="color:#a1a1a1; margin-top:3%"> 
+      <div>
+          <a href=Panduan.html type="button" class="btn btn-success btn-md" style="padding-right:70px">
+              <span style="font-size:1em;" class="glyphicon glyphicon-book">&nbsp;</span>
+              <font size="4">Panduan</font>
+          </a>
+          
+          <div style="margin-top: 3%">
+              <button type="button" class="btn btn-default btn-md">
+              <span style="font-size:1em; color:#449D44" class="glyphicon glyphicon-phone-alt">&nbsp;</span>
+                  <font size="4" color="#449D44">Hubungi Carigor</font>
+              </button>
+          </div>      
+      </div>
+</div>
+    
+<div class="col-md-4" style="margin-top:3%">
+    <div>
+        <img src="assets/icon/logo%20biru%20trans.png" height="30px" style="margin-bottom: 15px">
+        <br>
+        <p  data-toggle="collapse" data-target="#demo2">Tentang Carigor &nbsp;
+            <span class="glyphicon glyphicon-triangle-bottom"></span>
+        </p>
+        <br>
+       <p><a href="faq.html">FAQ</a></p>
+    </div>
+</div>
+<div class="col-md-4" style="margin-top:3%">
+    <div>
+    <img src="assets/icon/logobank.jpg" height="170px">
+    </div>
+</div>
+</div> 
+</div>
+           
+        
+<div class="container" style="border-top: 1px solid #ccc;">  
+</div>    
+        
+        
+<!-------------------------------------------------------------------------->        
+
+    <!-- jQuery Version 1.11.1 -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+	<script src="dist/js/bootstrap-select.js"></script>
+   <!-- Scrolling Nav JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/scrolling-nav.js"></script>
+        
+    <script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();   
+    });
+    </script>
+    
+    <!-- POP OVER-->
+    <script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+});
+</script>
+
+    
+    
+    <!-- STAR comment review-->
+    <script>
+    var __slice = [].slice;
+
+(function($, window) {
+  var Starrr;
+
+  Starrr = (function() {
+    Starrr.prototype.defaults = {
+      rating: void 0,
+      numStars: 5,
+      change: function(e, value) {}
+    };
+
+    function Starrr($el, options) {
+      var i, _, _ref,
+        _this = this;
+
+      this.options = $.extend({}, this.defaults, options);
+      this.$el = $el;
+      _ref = this.defaults;
+      for (i in _ref) {
+        _ = _ref[i];
+        if (this.$el.data(i) != null) {
+          this.options[i] = this.$el.data(i);
+        }
+      }
+      this.createStars();
+      this.syncRating();
+      this.$el.on('mouseover.starrr', 'span', function(e) {
+        return _this.syncRating(_this.$el.find('span').index(e.currentTarget) + 1);
+      });
+      this.$el.on('mouseout.starrr', function() {
+        return _this.syncRating();
+      });
+      this.$el.on('click.starrr', 'span', function(e) {
+        return _this.setRating(_this.$el.find('span').index(e.currentTarget) + 1);
+      });
+      this.$el.on('starrr:change', this.options.change);
+    }
+
+    Starrr.prototype.createStars = function() {
+      var _i, _ref, _results;
+
+      _results = [];
+      for (_i = 1, _ref = this.options.numStars; 1 <= _ref ? _i <= _ref : _i >= _ref; 1 <= _ref ? _i++ : _i--) {
+        _results.push(this.$el.append("<span class='glyphicon .glyphicon-star-empty'></span>"));
+      }
+      return _results;
+    };
+
+    Starrr.prototype.setRating = function(rating) {
+      if (this.options.rating === rating) {
+        rating = void 0;
+      }
+      this.options.rating = rating;
+      this.syncRating();
+      return this.$el.trigger('starrr:change', rating);
+    };
+
+    Starrr.prototype.syncRating = function(rating) {
+      var i, _i, _j, _ref;
+
+      rating || (rating = this.options.rating);
+      if (rating) {
+        for (i = _i = 0, _ref = rating - 1; 0 <= _ref ? _i <= _ref : _i >= _ref; i = 0 <= _ref ? ++_i : --_i) {
+          this.$el.find('span').eq(i).removeClass('glyphicon-star-empty').addClass('glyphicon-star');
+        }
+      }
+      if (rating && rating < 5) {
+        for (i = _j = rating; rating <= 4 ? _j <= 4 : _j >= 4; i = rating <= 4 ? ++_j : --_j) {
+          this.$el.find('span').eq(i).removeClass('glyphicon-star').addClass('glyphicon-star-empty');
+        }
+      }
+      if (!rating) {
+        return this.$el.find('span').removeClass('glyphicon-star').addClass('glyphicon-star-empty');
+      }
+    };
+
+    return Starrr;
+
+  })();
+  return $.fn.extend({
+    starrr: function() {
+      var args, option;
+
+      option = arguments[0], args = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+      return this.each(function() {
+        var data;
+
+        data = $(this).data('star-rating');
+        if (!data) {
+          $(this).data('star-rating', (data = new Starrr($(this), option)));
+        }
+        if (typeof option === 'string') {
+          return data[option].apply(data, args);
+        }
+      });
+    }
+  });
+})(window.jQuery, window);
+
+$(function() {
+  return $(".starrr").starrr();
+});
+
+$( document ).ready(function() {
+      
+  $('#stars').on('starrr:change', function(e, value){
+    $('#count').html(value);
+  });
+  
+  $('#stars-existing').on('starrr:change', function(e, value){
+    $('#count-existing').html(value);
+  });
+});
+    
+    </script>
+
+<!-- DATE PICKER-->
+<script>
+ $(document).ready(function () {
+	 $('#date').datetimepicker({
+         defaultDate: new Date()
+     });
+ });
+</script>
+
+<!--current date-->
+<script>
+$('#datepicker').datepicker('setDate', new Date(2011, 2, 5));
+$('#datepicker').datepicker('update');
+</script>
+    <!------->
+    <script>
+      $(document).ready(function () {
+        var mySelect = $('#first-disabled2');
+
+        $('#special').on('click', function () {
+          mySelect.find('option:selected').prop('disabled', true);
+          mySelect.selectpicker('refresh');
+        });
+
+        $('#special2').on('click', function () {
+          mySelect.find('option:disabled').prop('disabled', false);
+          mySelect.selectpicker('refresh');
+        });
+
+        $('#basic2').selectpicker({
+          liveSearch: true,
+          maxOptions: 1
+        });
+        
+      });
+    </script>
+
+<!---DATETIMEPICKER-->
+<script type="text/javascript" src="./jquery/jquery-1.8.3.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+<script type="text/javascript">
+    $('.form_datetime').datetimepicker({
+        //language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		forceParse: 0,
+        showMeridian: 1
+    });
+	$('.form_date').datetimepicker({
+        language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		minView: 2,
+		forceParse: 0
+    });
+	$('.form_time').datetimepicker({
+        language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 1,
+		minView: 0,
+		maxView: 1,
+		forceParse: 0
+    });
+
+	
+	
+</body>
+
+</html>

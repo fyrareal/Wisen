@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CariGOR</title>
+	
+	<link rel="icon" href="assets/icon/logo-putih-trans.png" type="image/x-icon"/>
+	<link rel="shortcut icon" href="assets/icon/logo-putih-trans.png" type="image/x-icon"/>
+	
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/custom.css" rel="stylesheet">
+	<link rel="stylesheet" href="dist/css/bootstrap-select.css">
+	 
+    <!--navi bisa scroll-->
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+        
+    <style>
+    body {
+        padding-top: 0px;
+        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    }
+
+/*sticky DIV*/
+        
+                #sticky {
+            padding: 0.1em 0.1em 0.1em 0.1em;
+           /* width: 600px; */
+            background-color: #F3F3F3;
+            color: #fff;
+            font-size: 2em;
+            border-radius: 0 0 0.5em 0.5em;
+            margin: 0 0.5em 0.5em 0.5em;
+            }
+            #sticky.stick {
+                position: fixed;
+                width: 100%;
+                top: 0;
+                z-index: 10000;
+                border-radius: 0 0 0.5em 0.5em;
+                margin: 0 0 1em 0em;
+               -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+                -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+                box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+            }
+            body {
+                
+            }
+            p {
+                margin: 1em auto;
+            }
+        
+        /*lurus*/    
+        span.lurus {
+            float: left;
+            margin: 0px;
+        }
+        
+            /*hover notif*/
+    .glyphicon-bell {
+  font-size: 25px;
+  color: #2574A9;
+  letter-spacing:6px;
+}
+        .glyphicon-bell:hover {
+  color: #223459;
+} 
+    .glyphicon-bell:checked {
+        color: #fff;
+    }
+    .glyphicon-thumbs-up {
+  font-size: 13px;
+  color: #95a5a6;
+  letter-spacing:6px;
+}
+        .glyphicon-thumbs-up:hover {
+  color: #1D1F21;
+} 
+       .glyphicon-thumbs-down {
+  font-size: 13px;
+  color: #95a5a6;
+  letter-spacing:6px;
+}
+        .glyphicon-thumbs-down:hover {
+  color: #1D1F21;
+} 
+
+           .glyphicon-triangle-top {
+  font-size: 12px;
+  color: #95a5a6;
+  letter-spacing:6px;
+}
+        .glyphicon-triangle-top:hover {
+  color: #1D1F21;
+} 
+         .glyphicon-triangle-bottom {
+  font-size: 12px;
+  color: #95a5a6;
+  letter-spacing:6px;
+}
+        .glyphicon-triangle-bottom:hover {
+  color: #1D1F21;
+} 
+   
+
+        
+        
+        
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation"> <!-- sudah diganti dari fixed ke static-->
+
+	<!--Navigation Forum-->
+<div style="background: #0f7ab7; font-size:12px;">
+<div class="container">
+<ul class="list-inline" style="float: right; margin-bottom: 0;">
+<li><a style="color: #fff;" href="#">Forum</a></li>
+<li><a style="color: #fff;" href="#">Hubungi Carigor</a></li>
+<li><a style="color: #fff;" href="#">Panduan Carigor</a></li>
+</ul>
+</div>
+</div>
+
+               <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img src="assets/icon/logo-putih-trans.png" height="140%" style="margin: 0 0 10px 0"/></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<ul class="nav navbar-nav navbar-right">
+    <!--notif-->
+  <li>
+    <div class="dropdown">
+        <p class="dropdown-toggle native-hidden" type="button" data-toggle="dropdown" style="font-size: 25px; margin: 15px 20px 5px 0"><span class="glyphicon glyphicon-bell "></span></p>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="#">
+                    <p>
+                        <img src="assets/icon/tiket.jpg" width="40px" height="20px">
+                        <span>&nbsp;&nbsp;</span>Anda telah mendapatkan tiket
+                        <strong>GOR Klebengan</strong>
+                        <br/>
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> pada tanggal 26/10/2015 lap.1 17:00-18:00 WIB
+                    </p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</li>
+    <!-- USER-->               
+   <li class="dropdown">
+    <img src="assets/icon/user.png" height="42" width="42" style="margin: 5px 20px 5px 0" class="dropdown-toggle" data-toggle="dropdown">
+       <!--menu-->
+        <ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
+                <li>
+                    <a href="#">
+                        <p>
+                            Bambang Linanto
+                        </p>
+                        <p style="font-size: 9px"> User Panel</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="status.html">
+                        <p>
+                            Status Pemesanan
+                        </p>
+                    </a>
+                </li>
+            
+            <!--Pembatas -->
+            <li class="divider"></li>
+            <li>
+                <button type="submit" class="btn btn-danger btn-block">Keluar</button>
+            </li>
+
+        </ul>
+    </li>           
+</ul>                
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>    
+        <!-- /.container -->
+    </nav>
+
+   
+    
+
+    
+   <!--Sticky DIV-->
+ 
+    <div id="sticky-anchor"></div>
+    <div id="sticky">
+        <div class="row">
+            <div class="col-md-2" style="margin-right:4.5%"></div>
+            <div class="col-md-2">
+                <div class="btn-group" data-toggle="buttons" style="padding: -10px -10px -10px -10px">
+					<span class="btn btn-default lurus" data-toggle="tooltip" data-placement="bottom" title="Badminton">
+						<input type="radio" name="olahraga" value="badminton" >
+                        <img src="assets/icon/icon-badminton.png" width="19x" alt="Badminton">
+					</span>
+					<label class="btn btn-default lurus" data-toggle="tooltip" data-placement="bottom" title="Futsal" >
+						<input type="radio" name="olahraga" value="futsal">
+                        <img src="assets/icon/icon-futsal.jpg" width="19px" alt="Futsal">
+					</label>
+					<label class="btn btn-default lurus" data-toggle="tooltip" data-placement="bottom" title="Tennis" >
+						<input type="radio" name="olahraga" value="tennis">
+                        <img src="assets/icon/icon-tennis.jpg" width="19px" alt="Tennis">
+					</label>
+					<label class="btn btn-default lurus" data-toggle="tooltip" data-placement="bottom" title="Renang" >
+						<input type="radio" name="olahraga" value="basket">
+                        <img src="assets/icon/icon-basket.jpg" width="19px" alt="Basket">
+					</label>			
+				</div>
+            </div>
+            <div class="col-md-4">
+             <form role="form" class="col-xs-6">
+			<div class="form-group">
+			  <select id="basic" class="selectpicker show-tick form-control" style="margin-padding: 10px;" data-live-search="true">
+			 <option style="color: #95a5a6">Pilih Provinsi</option>
+                <option>Sumatra Utara</option>  
+				<option>D.I.Yogyakarta</option>
+                <option>Jawa Barat</option>
+				<option>Jakarta</option>
+				<option>Jawa Timur</option>
+				<option>Jawa Tengah</option>
+			  </select>
+                 </div>
+                </form>
+                <form role="form" class="col-xs-6"> 
+                <div class="form-group">    
+			  <select id="basic" class="selectpicker show-tick form-control" data-live-search="true">
+			  <option style="color: #95a5a6">Pilih Kota/Kabupaten</option>
+				<option>Yogyakarta</option>
+				<option>Sleman</option>
+				<option>Bantul</option>
+				<option>Kulon Progo</option>
+				<option>Gunung Kidul</option>
+			  </select>
+			</div>
+		  </form>
+        </div>
+            <div class="col-xs-2">
+              <a type="button" class="btn btn-info"  href="tabel.html">
+                <span class="glyphicon glyphicon-search">&nbsp;</span>Cari
+            </a>  
+            </div>
+            
+        </div>
+    </div>
+
+	<!--breadcrump-->    
+    <div class="container" style="background: #F0F0F0; font-size:12px;">
+        <div class="row fd" >
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+<div class="as" style="background: #f0f0f0"><a href="index.html" class="glyphicon glyphicon-home"></a>&nbsp;<a href="index.html">Depan</a>>><a href="#">Badminton</a>>><a href="#">D.I.Yogyakarta</a>>><a href="tabel.html">Sleman</a></div>
+            </div>
+        </div>
+    </div>
+
+<!--FILTERING-->
+    <div class="container" style="margin-top: 1%">
+        <div class="row">
+            <div class="col-md-8"></div>
+            <div class="col-md-2">
+			<div class="form-group">
+                
+			  <select class="form-control" width="70%">
+                <option><a href="tabel.html">Terpopuler</a></option>
+                <option><a href="termahal.html">Termahal</a></option>
+                <option><a href="tabel.html">Termurah</a></option>  
+			  </select>
+                
+                 </div>
+                
+                
+            </div>
+        </div>
+    </div>
+    
+    
+<!-- TABEL-->    
+
+<div class="container">
+    <div class="col-md-4"></div>
+    <div class="list-group">
+          <!--Depok Sport Center-->
+        <a href="#" class="list-group-item">
+            <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="assets/icon/depoksc.jpg" width="90px" height="70px">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row"><strong style="font-size: 17px">Depok Sport Center</strong></div>
+                        <div class="row" style="font-size:11px; color: #f1c40f">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span style="color: #95a5a6">&nbsp; &nbsp;(0 Review)</span>
+                        </div>
+                        <div class="row"><span style="font-size:11px; color: #95a5a6">Badminton</span></div>
+                        <div class="row"><span style="font-size:11px; color: #95a5a6">3 Lapangan</span></div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <p style="color:#d35400; font-size:17px"><strong>Rp. 25.000,00 / jam</strong></p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </a>
+         <!--Lembah UGM-->
+        <a href="#" class="list-group-item">
+            <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="assets/icon/lembah.jpg" width="90px" height="70px">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row"><strong style="font-size: 17px">Lembah UGM</strong></div>
+                        <div class="row" style="font-size:11px; color: #f1c40f">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span style="color: #95a5a6">&nbsp; &nbsp;(0 Review)</span>
+                        </div>
+                        <div class="row"><span style="font-size:11px; color: #95a5a6">Badminton</span></div>
+                        <div class="row"><span style="font-size:11px; color: #95a5a6">3 Lapangan</span></div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <p style="color:#d35400; font-size:17px"><strong>Rp. 20.000,00 / jam</strong></p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </a>
+        <!--KLEBENGAN-->
+        <a href="lamangor.html" class="list-group-item">
+            <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="assets/icon/klebengan.jpg" width="90px" height="70px">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row"><strong style="font-size: 17px">GOR Klebengan</strong></div>
+                        <div class="row" style="font-size:11px; color: #f1c40f">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span style="color: #95a5a6">&nbsp; &nbsp;(1 Review)</span>
+                        </div>
+                        <div class="row"><span style="font-size:11px; color: #95a5a6">Badminton</span></div>
+                        <div class="row"><span style="font-size:11px; color: #95a5a6">4 Lapangan</span></div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <p style="color:#d35400; font-size:17px"><strong>Rp. 10.000,00 / jam</strong></p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </a>  
+    </div>
+    <div class="col-md-4"></div>
+</div>
+       
+
+    
+ <!--  FOOTER-->        
+    
+<div class="container" style="border-top: 1px solid #ccc; padding-top: 25px; margin-top: 25px">
+   
+    <!--Hubungi CArigor-->
+    <div class="row">
+        <div class="col-md-3"></div>
+       <div class="col-md-4">
+         <div id="demo2" class="row collapse">
+                      CariGor merupakan sebuah aplikasi pemesanan tempat olahraga yang memudahkan penggunanya untuk memesan tempat olahraga melalui website, tanpa harus mendatangi secara langsung.CariGor juga memberi kepastian pemesanan tempat olahraga serta transaksi yang jelas dan terpercaya
+           </div>  
+        
+        </div> 
+        <div class="col-md-1"></div>
+   </div>
+    
+    
+   <div class="row" style="margin: 0 0% 0 10%">
+<div class="col-md-4" style="color:#a1a1a1; margin-top:3%"> 
+      <div>
+          <a href=Panduan.html type="button" class="btn btn-success btn-md" style="padding-right:70px">
+              <span style="font-size:1em;" class="glyphicon glyphicon-book">&nbsp;</span>
+              <font size="4">Panduan</font>
+          </a>
+          
+          <div style="margin-top: 3%">
+              <button type="button" class="btn btn-default btn-md">
+              <span style="font-size:1em; color:#449D44" class="glyphicon glyphicon-phone-alt">&nbsp;</span>
+                  <font size="4" color="#449D44">Hubungi Carigor</font>
+              </button>
+          </div>      
+      </div>
+</div>
+    
+<div class="col-md-4" style="margin-top:3%">
+    <div>
+        <img src="assets/icon/logo%20biru%20trans.png" height="30px" style="margin-bottom: 15px">
+        <br>
+        <p  data-toggle="collapse" data-target="#demo2">Tentang Carigor
+            <span class="glyphicon glyphicon-triangle-bottom"></span>
+        </p>
+       <p><a href="faq.html">FAQ</a></p>
+    </div>
+</div>
+<div class="col-md-4" style="margin-top:3%">
+    <div>
+    <img src="assets/icon/logobank.jpg" height="170px">
+    </div>
+</div>
+</div> 
+</div>
+
+        
+
+
+              
+        
+        
+<!-------------------------------------------------------------------------->        
+
+    <!-- jQuery Version 1.11.1 -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+	<script src="dist/js/bootstrap-select.js"></script>
+   <!-- Scrolling Nav JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/scrolling-nav.js"></script>
+        
+    <script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();   
+    });
+    </script>
+
+    
+    
+    <!-- sticky DIV-->
+
+    <script>
+        
+    function sticky_relocate() {
+    var window_top = $(window).scrollTop();
+    var div_top = $('#sticky-anchor').offset().top;
+    if (window_top > div_top) {
+        $('#sticky').addClass('stick');
+    } else {
+        $('#sticky').removeClass('stick');
+    }
+    }
+
+    $(function () {
+        $(window).scroll(sticky_relocate);
+        sticky_relocate();
+    });
+
+    </script>    
+    
+<!-- DD SHORTING-->    
+    <script>
+    $(document).ready(function() {
+    $('#btnSort').click(function(e) {
+        $("#ddlList").html($('#ddlList option').sort(function(x, y) {
+            return $(x).text() < $(y).text() ? -1 : 1;
+        }))
+        $("#ddlList").get(0).selectedIndex = 0;
+        e.preventDefault();
+    });
+
+    $('#btnSortVal').click(function(e) {
+        $("#ddlList").html($('#ddlList option').sort(function(x, y) {
+            return $(x).val() < $(y).val() ? -1 : 1;
+        }))
+        $("#ddlList").get(0).selectedIndex = 0;
+        e.preventDefault();
+    });
+});
+    </script>
+    
+    <script>
+        
+      $(document).ready(function () {
+        var mySelect = $('#first-disabled2');
+
+        $('#special').on('click', function () {
+          mySelect.find('option:selected').prop('disabled', true);
+          mySelect.selectpicker('refresh');
+        });
+
+        $('#special2').on('click', function () {
+          mySelect.find('option:disabled').prop('disabled', false);
+          mySelect.selectpicker('refresh');
+        });
+
+        $('#basic2').selectpicker({
+          liveSearch: true,
+          maxOptions: 1
+        });
+        
+      });
+    </script>
+	
+	
+</body>
+
+</html>
